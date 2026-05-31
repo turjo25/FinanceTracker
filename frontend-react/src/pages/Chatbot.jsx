@@ -196,23 +196,25 @@ const Chatbot = () => {
   return (
     <div className="max-w-4xl mx-auto h-[calc(100vh-8rem)] flex flex-col bg-background border border-border rounded-2xl shadow-sm overflow-hidden">
       {/* Header */}
-      <div className="bg-surface px-6 py-4 border-b border-border flex items-center justify-between flex-shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-            <Bot className="w-6 h-6 text-primary" />
+      <div className="bg-surface px-4 sm:px-6 py-4 border-b border-border flex items-center justify-between flex-shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <Bot className="w-5.5 h-5.5 sm:w-6 sm:h-6 text-primary" />
           </div>
-          <div>
-            <h2 className="text-lg font-bold text-textMain">AI Financial Assistant</h2>
+          <div className="min-w-0">
+            <h2 className="text-base sm:text-lg font-bold text-textMain truncate">AI Financial Assistant</h2>
             <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <p className="text-xs text-textMuted">Online · Powered by OpenAI</p>
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+              <p className="text-[11px] sm:text-xs text-textMuted truncate">
+                Online<span className="hidden sm:inline"> · Powered by OpenAI</span>
+              </p>
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
           <button
             onClick={handleReset}
-            className="flex items-center justify-center w-9 h-9 text-textMuted hover:text-textMain hover:bg-background rounded-lg transition-all"
+            className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 text-textMuted hover:text-textMain hover:bg-background rounded-lg transition-all"
             title="Reset Chat"
           >
             <RefreshCcw className="w-4 h-4" />
@@ -221,10 +223,11 @@ const Chatbot = () => {
             onClick={() =>
               handleSend('Please summarize my overall financial condition.')
             }
-            className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium transition-all"
+            className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-all"
+            title="Summarize Finances"
           >
             <Sparkles className="w-4 h-4" />
-            Summarize Finances
+            <span className="hidden sm:inline">Summarize Finances</span>
           </button>
         </div>
       </div>

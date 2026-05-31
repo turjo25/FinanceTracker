@@ -232,7 +232,7 @@ const Transactions = () => {
                 </span>
                 <button
                   onClick={() => handleDelete(t.id)}
-                  className="text-textMuted hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
+                  className="text-textMuted hover:text-red-500 transition-colors md:opacity-0 md:group-hover:opacity-100 opacity-100"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>

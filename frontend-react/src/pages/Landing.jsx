@@ -39,7 +39,7 @@ const Landing = () => {
 
         <Navbar />
 
-        <main className="flex-1 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-8 pb-20 pt-10 relative z-10">
+        <main className="flex-1 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4 sm:px-8 pb-20 pt-10 relative z-10">
           
           {/* Left Column - Copy */}
           <div className="max-w-xl">
@@ -65,7 +65,7 @@ const Landing = () => {
                  <p className="font-semibold text-textMain text-lg">Personal finance web app</p>
                  <p className="text-textMuted flex items-center gap-2 text-sm mt-1">
                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                  FinanceTracker trusted by many users
+                   FinanceTracker trusted by many users
                  </p>
                </div>
             </div>
@@ -75,7 +75,7 @@ const Landing = () => {
           <div className="relative flex justify-center items-center">
              
              {/* Floating Stats Card */}
-             <div className="absolute top-10 left-0 bg-[#E8E1D9] dark:bg-amber-900/40 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-lg z-30 max-w-[200px] border border-black/5 dark:border-white/10 float-card" style={{animationDelay:'0.2s'}}>
+             <div className="hidden sm:block absolute top-10 left-0 bg-[#E8E1D9] dark:bg-amber-900/40 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-lg z-30 max-w-[200px] border border-black/5 dark:border-white/10 float-card" style={{animationDelay:'0.2s'}}>
                 <h3 className="text-3xl font-bold mb-2">🏅</h3>
                 <p className="text-sm opacity-80 mb-4">FinanceTracker is trusted by many users.</p>
                 <div className="flex -space-x-2">
@@ -86,7 +86,7 @@ const Landing = () => {
              </div>
 
              {/* Rating Badge */}
-             <div className="absolute top-1/4 -left-10 bg-surface px-4 py-2 rounded-full shadow-md z-30 border border-border flex items-center gap-2 float-card" style={{animationDelay:'0.6s'}}>
+             <div className="hidden md:flex absolute top-1/4 -left-10 bg-surface px-4 py-2 rounded-full shadow-md z-30 border border-border items-center gap-2 float-card" style={{animationDelay:'0.6s'}}>
                 <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                 <span className="font-bold text-sm">4.8</span>
              </div>
@@ -97,7 +97,7 @@ const Landing = () => {
              </div>
 
              {/* Save Smarter Label */}
-             <div className="absolute right-0 top-1/3 max-w-[120px] z-30">
+             <div className="hidden sm:block absolute right-0 top-1/3 max-w-[120px] z-30">
                 <div className="w-10 h-10 rounded-full bg-surface shadow-md flex items-center justify-center mb-4 border border-border">
                   <svg className="w-5 h-5 text-textMain" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
                 </div>
@@ -105,7 +105,7 @@ const Landing = () => {
              </div>
 
              {/* Safe & Secure Badge */}
-             <div className="absolute bottom-1/4 -left-12 bg-[#F3F4A5] dark:bg-yellow-900 text-gray-900 dark:text-yellow-100 px-6 py-3 rounded-full shadow-lg z-30 border border-black/5 dark:border-white/10 flex items-center gap-3 float-card" style={{animationDelay:'1s'}}>
+             <div className="hidden md:flex absolute bottom-1/4 -left-12 bg-[#F3F4A5] dark:bg-yellow-900 text-gray-900 dark:text-yellow-100 px-6 py-3 rounded-full shadow-lg z-30 border border-black/5 dark:border-white/10 items-center gap-3 float-card" style={{animationDelay:'1s'}}>
                 <div className="bg-textMain text-surface rounded-full p-1">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
@@ -226,20 +226,14 @@ const Landing = () => {
                <h2 className="text-4xl font-bold mb-4">Resources to help you grow.</h2>
                <p className="text-textMuted max-w-xl">Learn how to make the most of your money with our curated guides and support center.</p>
             </div>
-            {/* <button className="mt-6 md:mt-0 px-6 py-2 rounded-full bg-textMain text-surface font-medium hover:opacity-90 transition-opacity">
-               View All Resources
-            </button> */}
          </div>
 
          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[{t:'Help Center',d:'Step-by-step guides on connecting accounts and using features.'},{t:'Community Forum',d:'Connect with other users to share budgeting tips and strategies.'},{t:'Personal Finance 101',d:'Learn the basics of budgeting, investing, and debt management.'},{t:'API Documentation',d:'For developers looking to integrate with our platform.'}].map((r,i) => (
-              <a key={i} href="#" className="group p-6 rounded-2xl bg-surface border border-border landing-card" style={{animationDelay:`${i*0.1}s`}}>
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
-                  <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                </div>
-                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">{r.t}</h3>
+              <div key={i} className="p-6 rounded-2xl bg-surface border border-border landing-card" style={{animationDelay:`${i*0.1}s`}}>
+                <h3 className="font-bold mb-2 text-textMain">{r.t}</h3>
                 <p className="text-sm text-textMuted">{r.d}</p>
-              </a>
+              </div>
             ))}
          </div>
       </section>

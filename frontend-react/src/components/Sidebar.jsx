@@ -25,9 +25,10 @@ import {
 import Logo from './Logo';
 import api from '../services/api';
 
-const SidebarItem = ({ icon: Icon, label, to, badge, hasDot, isActive }) => (
+const SidebarItem = ({ icon: Icon, label, to, badge, hasDot, isActive, onClick }) => (
   <NavLink
     to={to}
+    onClick={onClick}
     className={({ isActive: navIsActive }) =>
       `flex items-center justify-between px-4 py-3 rounded-xl transition-all group ${
         isActive || navIsActive 
@@ -176,7 +177,7 @@ const ReportItem = () => {
 };
 
 // ─── Sidebar ─────────────────────────────────────────────────────────────────
-const Sidebar = ({ handleLogout }) => {
+const Sidebar = ({ handleLogout, isOpen, onClose }) => {
   const [activityExpanded, setActivityExpanded] = useState(true);
   const [helpExpanded, setHelpExpanded] = useState(false);
   const location = useLocation();
@@ -194,8 +195,8 @@ const Sidebar = ({ handleLogout }) => {
     window.dispatchEvent(new Event('theme-change'));
   };
 
-  return (
-    <aside className="w-64 h-screen bg-background border-r border-border flex flex-col hidden lg:flex sticky top-0 transition-colors duration-300">
+  const renderContent = () => (
+    <>
       <div className="p-6">
         <Logo />
       </div>
@@ -204,9 +205,9 @@ const Sidebar = ({ handleLogout }) => {
         <div className="mb-8">
           <p className="px-4 text-xs font-semibold text-textMuted uppercase tracking-wider mb-2">Menu</p>
           <div className="space-y-1">
-            <SidebarItem icon={LayoutDashboard} label="Overview" to="/dashboard" isActive={location.pathname === '/dashboard'} />
-            <SidebarItem icon={Wallet} label="My Wallet" to="/wallet" />
-            <SidebarItem icon={Target} label="Savings Goals" to="/savings-goals" />
+            <SidebarItem icon={LayoutDashboard} label="Overview" to="/dashboard" isActive={location.pathname === '/dashboard'} onClick={onClose} />
+            <SidebarItem icon={Wallet} label="My Wallet" to="/wallet" onClick={onClose} />
+            <SidebarItem icon={Target} label="Savings Goals" to="/savings-goals" onClick={onClose} />
             
             {/* Activity accordion */}
             <div>
@@ -223,13 +224,13 @@ const Sidebar = ({ handleLogout }) => {
               
               {activityExpanded && (
                 <div className="ml-12 mt-1 space-y-1 relative before:absolute before:left-[-1.25rem] before:top-0 before:bottom-0 before:w-px before:bg-border">
-                  <NavLink to="/transactions?type=expense" className="block py-2 text-sm text-textMuted hover:text-textMain relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border">Expenses</NavLink>
-                  <NavLink to="/transactions?type=income" className="block py-2 text-sm text-textMuted hover:text-textMain relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border">Income</NavLink>
+                  <NavLink to="/transactions?type=expense" onClick={onClose} className="block py-2 text-sm text-textMuted hover:text-textMain relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border">Expenses</NavLink>
+                  <NavLink to="/transactions?type=income" onClick={onClose} className="block py-2 text-sm text-textMuted hover:text-textMain relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border">Income</NavLink>
                 </div>
               )}
             </div>
 
-            <SidebarItem icon={MessageSquare} label="Messages" to="/messages" hasDot={true} />
+            <SidebarItem icon={MessageSquare} label="Messages" to="/messages" hasDot={true} onClick={onClose} />
             <ReportItem />
           </div>
         </div>
@@ -237,8 +238,8 @@ const Sidebar = ({ handleLogout }) => {
         <div>
           <p className="px-4 text-xs font-semibold text-textMuted uppercase tracking-wider mb-2">Help & Settings</p>
           <div className="space-y-1">
-            <SidebarItem icon={Settings} label="Settings" to="/settings" />
-            <SidebarItem icon={MessageCircle} label="Feedback" to="/feedback" />
+            <SidebarItem icon={Settings} label="Settings" to="/settings" onClick={onClose} />
+            <SidebarItem icon={MessageCircle} label="Feedback" to="/feedback" onClick={onClose} />
             
             {/* Help & Center accordion */}
             <div>
@@ -259,15 +260,15 @@ const Sidebar = ({ handleLogout }) => {
               
               {helpExpanded && (
                 <div className="ml-12 mt-1 space-y-1 relative before:absolute before:left-[-1.25rem] before:top-0 before:bottom-0 before:w-px before:bg-border pb-2">
-                  <a href="https://linkedin.com/in/srturjo25" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 py-2 text-sm text-textMuted hover:text-[#0A66C2] dark:hover:text-[#60A5FA] relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border transition-colors">
+                  <a href="https://linkedin.com/in/srturjo25" target="_blank" rel="noopener noreferrer" onClick={onClose} className="flex items-center gap-2 py-2 text-sm text-textMuted hover:text-[#0A66C2] dark:hover:text-[#60A5FA] relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border transition-colors">
                     <Briefcase className="w-4 h-4" />
                     LinkedIn
                   </a>
-                  <a href="https://github.com/turjo25" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 py-2 text-sm text-textMuted hover:text-black dark:hover:text-white relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border transition-colors">
+                  <a href="https://github.com/turjo25" target="_blank" rel="noopener noreferrer" onClick={onClose} className="flex items-center gap-2 py-2 text-sm text-textMuted hover:text-black dark:hover:text-white relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border transition-colors">
                     <Code className="w-4 h-4" />
                     GitHub
                   </a>
-                  <a href="mailto:mdshardulrahmanturjoofficial@gmail.com" className="flex items-center gap-2 py-2 text-sm text-textMuted hover:text-[#EA4335] dark:hover:text-[#F87171] relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border transition-colors">
+                  <a href="mailto:mdshardulrahmanturjoofficial@gmail.com" onClick={onClose} className="flex items-center gap-2 py-2 text-sm text-textMuted hover:text-[#EA4335] dark:hover:text-[#F87171] relative before:absolute before:left-[-1.25rem] before:top-1/2 before:w-3 before:h-px before:bg-border transition-colors">
                     <Mail className="w-4 h-4" />
                     Gmail
                   </a>
@@ -293,14 +294,40 @@ const Sidebar = ({ handleLogout }) => {
         </button>
 
         <button 
-          onClick={handleLogout}
+          onClick={() => {
+            if (onClose) onClose();
+            handleLogout();
+          }}
           className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-danger hover:bg-danger/10 transition-all font-medium"
         >
           <LogOut className="w-5 h-5" />
           Logout
         </button>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop Sidebar - Hidden on mobile */}
+      <aside className="w-64 h-screen bg-background border-r border-border flex flex-col hidden lg:flex sticky top-0 transition-colors duration-300">
+        {renderContent()}
+      </aside>
+
+      {/* Mobile Drawer Sidebar - Rendered as overlay on smaller viewports */}
+      <div className={`lg:hidden fixed inset-0 z-50 transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        {/* Backdrop overlay */}
+        <div 
+          onClick={onClose}
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        />
+        
+        {/* Drawer container */}
+        <aside className={`absolute top-0 left-0 bottom-0 w-72 bg-background border-r border-border flex flex-col shadow-2xl transition-transform duration-300 ease-out transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          {renderContent()}
+        </aside>
+      </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import { Search, Sparkles, ChevronDown, User, Settings as SettingsIcon, LogOut } from 'lucide-react';
+import { Search, Sparkles, ChevronDown, User, Settings as SettingsIcon, LogOut, Menu } from 'lucide-react';
 import api from '../services/api';
 import ProfileSummaryModal from './ProfileSummaryModal';
 import { useCurrency } from '../context/CurrencyContext';
@@ -16,6 +16,7 @@ const DashboardLayout = ({ children }) => {
   
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const profileDropdownRef = useRef(null);
 
   useEffect(() => {
@@ -62,11 +63,19 @@ const DashboardLayout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-surface md:bg-background flex text-textMain font-sans transition-colors duration-300">
-      <Sidebar handleLogout={handleLogout} />
+      <Sidebar handleLogout={handleLogout} isOpen={mobileSidebarOpen} onClose={() => setMobileSidebarOpen(false)} />
       
       <main className="flex-1 flex flex-col min-h-screen overflow-hidden">
         {/* Top Header */}
-        <header className="h-20 border-b border-border bg-background px-8 flex items-center justify-between sticky top-0 z-20">
+        <header className="h-20 border-b border-border bg-background px-4 md:px-8 flex items-center sticky top-0 z-20">
+          <button 
+            onClick={() => setMobileSidebarOpen(true)}
+            className="p-2.5 rounded-xl border border-border bg-surface text-textMuted hover:text-textMain lg:hidden mr-4 flex items-center justify-center transition-colors"
+            title="Open Menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+
           <div className="relative w-96 hidden md:block">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-textMuted w-5 h-5" />
             <input 
@@ -159,7 +168,7 @@ const DashboardLayout = ({ children }) => {
 
         {/* Page Content */}
         <div className="flex-1 overflow-y-auto bg-background p-4 md:p-8 custom-scrollbar scroll-smooth-container">
-           <div className="max-w-[1600px] mx-auto bg-surface rounded-[2rem] p-6 shadow-sm border border-border page-enter">
+           <div className="max-w-[1600px] mx-auto bg-surface rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 shadow-sm border border-border page-enter">
              {children}
            </div>
         </div>

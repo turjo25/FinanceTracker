@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Lock, Save, Loader2, CheckCircle2, RefreshCw, TrendingUp } from 'lucide-react';
+import { User, Lock, Save, Loader2, CheckCircle2, RefreshCw, TrendingUp, Eye, EyeOff } from 'lucide-react';
 import api from '../services/api';
 import { useCurrency, CURRENCIES } from '../context/CurrencyContext';
 
@@ -25,6 +25,10 @@ const Settings = () => {
   });
   const [securityLoading, setSecurityLoading] = useState(false);
   const [securityMessage, setSecurityMessage] = useState(null);
+
+  const [showOldPassword, setShowOldPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   useEffect(() => {
     fetchProfile();
@@ -250,35 +254,62 @@ const Settings = () => {
               <form onSubmit={handleSecurityUpdate} className="space-y-5">
                 <div>
                   <label className="text-xs font-medium text-textMuted mb-1.5 block">Current Password *</label>
-                  <input
-                    type="password"
-                    value={passwords.old_password}
-                    onChange={(e) => setPasswords({ ...passwords, old_password: e.target.value })}
-                    className="w-full bg-surface border border-border rounded-xl py-3 px-4 text-sm text-textMain placeholder-textMuted focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                    required
-                  />
+                  <div className="relative">
+                    <input
+                      type={showOldPassword ? "text" : "password"}
+                      value={passwords.old_password}
+                      onChange={(e) => setPasswords({ ...passwords, old_password: e.target.value })}
+                      className="w-full bg-surface border border-border rounded-xl py-3 pl-4 pr-12 text-sm text-textMain placeholder-textMuted focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowOldPassword(!showOldPassword)}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-textMuted hover:text-textMain transition-colors"
+                    >
+                      {showOldPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
                 </div>
 
                 <div>
                   <label className="text-xs font-medium text-textMuted mb-1.5 block">New Password *</label>
-                  <input
-                    type="password"
-                    value={passwords.new_password}
-                    onChange={(e) => setPasswords({ ...passwords, new_password: e.target.value })}
-                    className="w-full bg-surface border border-border rounded-xl py-3 px-4 text-sm text-textMain placeholder-textMuted focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                    required
-                  />
+                  <div className="relative">
+                    <input
+                      type={showNewPassword ? "text" : "password"}
+                      value={passwords.new_password}
+                      onChange={(e) => setPasswords({ ...passwords, new_password: e.target.value })}
+                      className="w-full bg-surface border border-border rounded-xl py-3 pl-4 pr-12 text-sm text-textMain placeholder-textMuted focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowNewPassword(!showNewPassword)}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-textMuted hover:text-textMain transition-colors"
+                    >
+                      {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
                 </div>
 
                 <div>
                   <label className="text-xs font-medium text-textMuted mb-1.5 block">Confirm New Password *</label>
-                  <input
-                    type="password"
-                    value={passwords.confirm_password}
-                    onChange={(e) => setPasswords({ ...passwords, confirm_password: e.target.value })}
-                    className="w-full bg-surface border border-border rounded-xl py-3 px-4 text-sm text-textMain placeholder-textMuted focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                    required
-                  />
+                  <div className="relative">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      value={passwords.confirm_password}
+                      onChange={(e) => setPasswords({ ...passwords, confirm_password: e.target.value })}
+                      className="w-full bg-surface border border-border rounded-xl py-3 pl-4 pr-12 text-sm text-textMain placeholder-textMuted focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-textMuted hover:text-textMain transition-colors"
+                    >
+                      {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
                 </div>
 
                 {securityMessage && (

@@ -155,7 +155,7 @@ const SavingsGoals = () => {
             return (
               <div key={goal.id} className="bg-background border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative group">
                 {/* Actions Dropdown / Hover Buttons */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-4 right-4 flex gap-2 md:opacity-0 md:group-hover:opacity-100 opacity-100 transition-opacity">
                   <button 
                     onClick={() => openEditModal(goal)}
                     className="w-8 h-8 flex items-center justify-center rounded-full bg-surface text-textMuted hover:text-primary transition-colors"
