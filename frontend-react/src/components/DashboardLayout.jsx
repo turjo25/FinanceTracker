@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import { Search, Bell, ChevronDown, User, Settings as SettingsIcon, LogOut } from 'lucide-react';
+import { Search, Sparkles, ChevronDown, User, Settings as SettingsIcon, LogOut } from 'lucide-react';
 import api from '../services/api';
 import ProfileSummaryModal from './ProfileSummaryModal';
 import { useCurrency } from '../context/CurrencyContext';
@@ -80,9 +80,15 @@ const DashboardLayout = ({ children }) => {
           </div>
 
           <div className="flex items-center gap-6 ml-auto">
-            <button className="relative text-textMuted hover:text-textMain transition-colors">
-              <Bell className="w-6 h-6" />
-              <span className="absolute top-0 right-0 w-2 h-2 bg-danger rounded-full border-2 border-background"></span>
+            {/* Glowing AI Assistant Quick-Access Button */}
+            <button 
+              onClick={() => navigate('/messages')}
+              title="Chat with AI Financial Assistant"
+              className="relative p-2.5 rounded-full bg-gradient-to-tr from-emerald-500/10 to-blue-500/10 hover:from-emerald-500/20 hover:to-blue-500/20 text-[#10B981] hover:text-[#059669] dark:text-emerald-400 dark:hover:text-emerald-300 transition-all duration-300 shadow-sm border border-emerald-500/20 hover:border-emerald-500/40 group flex items-center justify-center"
+            >
+              <Sparkles className="w-5 h-5 animate-pulse" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full" />
             </button>
             
             <div className="relative" ref={profileDropdownRef}>
