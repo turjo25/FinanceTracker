@@ -136,62 +136,127 @@ const Landing = () => {
 
       {/* Features Section */}
       <section id="features" className="max-w-7xl mx-auto w-full py-20 px-4 md:px-8 text-textMain mt-12 scroll-mt-24">
-         <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
+         <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
                <h2 className="text-4xl font-bold mb-6">Everything you need to succeed financially.</h2>
-               <p className="text-textMuted mb-8 leading-relaxed">We've built a comprehensive suite of tools designed to give you total clarity and control over your money, without the stress.</p>
+               <p className="text-textMuted mb-8 leading-relaxed">We've built a comprehensive suite of tools designed to give you total clarity and control over your money, without the stress. Experience the most exclusive, state-of-the-art features tailored to your financial habits.</p>
                
-               <ul className="space-y-6">
+               <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
                  <li className="flex gap-4">
                    <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center shrink-0">
-                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
                    </div>
                    <div>
-                     <h4 className="font-bold mb-1">Dynamic Budgeting</h4>
-                     <p className="text-sm text-textMuted">Create flexible budgets that adapt to your lifestyle. Get real-time alerts before you overspend.</p>
+                     <h4 className="font-bold mb-1">AI Financial Chatbot</h4>
+                     <p className="text-sm text-textMuted">Conversational assistant powered by Llama 3.1 via OpenRouter. Summarize your overall financial condition and analyze expenses instantly.</p>
                    </div>
                  </li>
                  <li className="flex gap-4">
                    <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center shrink-0">
-                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h0a2 2 0 01-2 2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                    </div>
                    <div>
-                     <h4 className="font-bold mb-1">Necessary Security</h4>
-                     <p className="text-sm text-textMuted">Your data is encrypted. We never sell your data to third parties.</p>
+                     <h4 className="font-bold mb-1">Smart ML Predictions</h4>
+                     <p className="text-sm text-textMuted">A dedicated FastAPI microservice leveraging Scikit-Learn Naive Bayes. Auto-categorizes transactions and forecasts monthly velocity.</p>
                    </div>
                  </li>
                  <li className="flex gap-4">
                    <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center shrink-0">
-                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                    </div>
                    <div>
-                     <h4 className="font-bold mb-1">Custom Reports</h4>
-                     <p className="text-sm text-textMuted">Export your financial data or view beautifully crafted reports to prepare for tax season.</p>
+                     <h4 className="font-bold mb-1">Live Multi-Currency Sync</h4>
+                     <p className="text-sm text-textMuted">Dynamic exchange rates powered by the Frankfurter API and React Context. Convert and manage all assets flawlessly across global currencies.</p>
+                   </div>
+                 </li>
+                 <li className="flex gap-4">
+                   <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center shrink-0">
+                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                   </div>
+                   <div>
+                     <h4 className="font-bold mb-1">Interactive Analytics</h4>
+                     <p className="text-sm text-textMuted">High-fidelity data visualizations with responsive Recharts. Track your cash flow trends, category breakdown ratios, and balance velocity.</p>
+                   </div>
+                 </li>
+                 <li className="flex gap-4">
+                   <div className="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 flex items-center justify-center shrink-0">
+                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                   </div>
+                   <div>
+                     <h4 className="font-bold mb-1">Custom Savings Targets</h4>
+                     <p className="text-sm text-textMuted">Establish goals, set specific deadlines, and track milestones with real-time feedback and glassmorphic progress trackers.</p>
+                   </div>
+                 </li>
+                 <li className="flex gap-4">
+                   <div className="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 flex items-center justify-center shrink-0">
+                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                   </div>
+                   <div>
+                     <h4 className="font-bold mb-1">Secure OAuth & JWT Auth</h4>
+                     <p className="text-sm text-textMuted">Secure Google Cloud integration alongside traditional email/password credentials with secure JWT access tokens.</p>
                    </div>
                  </li>
                </ul>
             </div>
-            <div className="bg-surface rounded-3xl p-8 border border-border shadow-md">
-               {/* Decorative placeholder for features graphic */}
-               <div className="aspect-square bg-background rounded-2xl border border-border flex items-center justify-center p-6 relative overflow-hidden">
-                  <div className="absolute w-full h-full opacity-20 dark:opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent"></div>
-                  <div className="w-full space-y-4 relative z-10">
-                    <div className="h-12 bg-surface rounded-xl border border-border shadow-sm flex items-center px-4 gap-4">
-                      <div className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30"></div>
-                      <div className="flex-1 h-2 bg-background rounded-full"></div>
-                      <div className="w-12 h-2 bg-textMuted/30 rounded-full"></div>
+            <div className="lg:col-span-5 bg-surface rounded-3xl p-6 border border-border shadow-md relative overflow-hidden">
+               {/* Decorative background gradients */}
+               <div className="absolute w-full h-full top-0 left-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent pointer-events-none"></div>
+               
+               <h3 className="text-xs font-bold text-textMain mb-4 uppercase tracking-wider flex items-center gap-2">
+                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" /> Platform Exclusive Features
+               </h3>
+               
+               <div className="space-y-4 relative z-10">
+                 {/* AI Prompt Mockup */}
+                 <div className="bg-background/80 backdrop-blur-md rounded-2xl p-4 border border-border shadow-sm transition-all duration-300 hover:scale-[1.02]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">🤖</div>
+                      <span className="text-xs font-bold text-textMain">AI Financial Assistant</span>
+                      <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-medium ml-auto">Llama 3.1</span>
                     </div>
-                    <div className="h-12 bg-surface rounded-xl border border-border shadow-sm flex items-center px-4 gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30"></div>
-                      <div className="flex-1 h-2 bg-background rounded-full"></div>
-                      <div className="w-12 h-2 bg-textMuted/30 rounded-full"></div>
+                    <p className="text-xs text-textMain leading-relaxed">
+                      "I've categorized your transaction history. You've spent 12% less on Dining compared to last month. Setting a savings target of $200 is recommended."
+                    </p>
+                 </div>
+                 
+                 {/* Live Currency Sync */}
+                 <div className="bg-background/80 backdrop-blur-md rounded-2xl p-4 border border-border shadow-sm transition-all duration-300 hover:scale-[1.02]">
+                    <div className="flex items-center justify-between mb-2.5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-textMain">Live Multi-Currency Conversion</span>
+                      </div>
+                      <span className="text-[8px] text-textMuted uppercase font-medium">Frankfurter API</span>
                     </div>
-                    <div className="h-12 bg-surface rounded-xl border border-border shadow-sm flex items-center px-4 gap-4">
-                      <div className="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30"></div>
-                      <div className="flex-1 h-2 bg-background rounded-full"></div>
-                      <div className="w-12 h-2 bg-textMuted/30 rounded-full"></div>
+                    <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                      <div className="bg-surface rounded-lg p-2 border border-border">
+                        <span className="text-[10px] text-textMuted block">USD</span>
+                        <span className="font-bold text-textMain">$1.00</span>
+                      </div>
+                      <div className="bg-surface rounded-lg p-2 border border-border">
+                        <span className="text-[10px] text-textMuted block">EUR</span>
+                        <span className="font-bold text-textMain">€0.92</span>
+                      </div>
+                      <div className="bg-surface rounded-lg p-2 border border-border">
+                        <span className="text-[10px] text-textMuted block">BDT</span>
+                        <span className="font-bold text-textMain">৳117.5</span>
+                      </div>
                     </div>
-                  </div>
+                 </div>
+
+                 {/* Savings Goal Card */}
+                 <div className="bg-background/80 backdrop-blur-md rounded-2xl p-4 border border-border shadow-sm transition-all duration-300 hover:scale-[1.02]">
+                    <div className="flex justify-between items-center mb-1.5">
+                      <span className="text-xs font-bold text-textMain">🎯 Europe Trip savings</span>
+                      <span className="text-xs font-bold text-green-500">72.5%</span>
+                    </div>
+                    <div className="w-full bg-surface rounded-full h-2 mb-2">
+                      <div className="bg-primary h-2 rounded-full transition-all duration-500" style={{ width: '72.5%' }} />
+                    </div>
+                    <div className="flex justify-between text-[10px] text-textMuted">
+                      <span>Saved: $1,450</span>
+                      <span>Target: $2,000</span>
+                    </div>
+                 </div>
                </div>
             </div>
          </div>
